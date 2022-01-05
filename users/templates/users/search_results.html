@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Search</h1>
+
+    <ul>
+    {% for Profile in object_list %}
+        <li class="results-page">
+            <img class="rounded-circle article-img" src="{{ Profile.image.url }}">
+            <a class ="search-user-display" href="{% url 'user-posts' Profile.user %}">{{ Profile.user }} -  {{ Profile.user_role }}</a> 
+             <p class="text">{{ Profile.user_bio }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+{% endblock content %}
+
+
+{% comment %} 
+
+trying to make user link from search page
+
+
+
+{% endcomment %}
